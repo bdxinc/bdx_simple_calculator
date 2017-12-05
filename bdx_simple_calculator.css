@@ -1,19 +1,39 @@
 .main {
-  /*stuff*/
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  border: 2px solid red;
+}
 
-  /*grid-template-areas: "total total total ..."
-                       "seven  eight nine.."
-                       "four  five"
-                       "one  two"
-                       "zero  decimal";*/
+.calcFace {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 2fr 1fr;
+  border: 2px solid green;
+}
 
+.allButtons {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
-  border: 2px solid black;
+  grid-template-rows: 25% 25% 25% 25%;
+  border: 2px solid blue;
+}
 
+
+h1 {
+  /*grid-column: 2;
+  grid-row: 1;*/
+}
+
+.total {
+
+  border: 2px solid orange;
 }
 
 .button {
   border: 2px solid black;
+}
+
+#seven {
+  grid-column: 1;
+  grid-row: 1;
 }
