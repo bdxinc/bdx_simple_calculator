@@ -11,7 +11,7 @@
   border: 2px solid green;
 }
 
-.allButtons {
+.buttons {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 25% 25% 25% 25%;
@@ -20,20 +20,105 @@
 
 
 h1 {
-  /*grid-column: 2;
-  grid-row: 1;*/
+  display: flex;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .total {
-
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column: 1 / 4;
   border: 2px solid orange;
 }
 
-.button {
+button {
   border: 2px solid black;
+}
+
+#clear {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#zero {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+#one {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#two {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+#three {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+#four {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#five {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#six {
+  grid-column: 3;
+  grid-row: 2;
 }
 
 #seven {
   grid-column: 1;
+  grid-row: 1;
+}
+
+#eight {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#nine {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#decimal {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+#equals {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+#addition {
+  grid-column: 4;
+  grid-row: 4;
+}
+
+#subtraction {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+#multiplication {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+#division {
+  grid-column: 4;
   grid-row: 1;
 }
