@@ -2,9 +2,9 @@
 
   function handleClick(event) {
     if (event.target !== event.currentTarget && event.target.nodeName === "BUTTON") {
-      console.log(event.target.name);
+      console.log(event.target.textContent);
 
-      // buttonStuff(event.target.name);
+      buttonHell(event.target.textContent);
     }
     event.stopPropagation();
   }
@@ -69,28 +69,33 @@
   }
 
 
-/*
-  **NONSENSE**
+function buttonHell(buttonContent){
+  var numbers = /[0-9]+/g;
+  var decimal = /[.]+/g;
+  var mathOperation = /[+-÷×/*]+/g;
+  var clear = /[AC/C]+/g;
 
-function buttonHell(buttonName){
-var pattern = regexStuff...;
+    if(buttonContent.match(numbers)) {
+      console.log(buttonContent);
 
-  if(buttonName === pattern){
-    number stuff would happen
-    tact on another number/ or whatever??
+      // stuff should happen...
 
-    if(buttonName === decimalPattern) {
+    } else if(buttonContent.match(decimal)) {
+      console.log(buttonContent);
 
-      if...moreStuff??
+      // stuff should happen...
+
+    } else if(buttonContent.match(mathOperation)) {
+      console.log(buttonContent);
+
+      // stuff should happen...
+
+    } else if(buttonContent.match(clear)) {
+      console.log(buttonContent);
+
+      // stuff should happen...
+
     }
-  } elseif (buttonName == "decimal") {
-
-
-  } else{
-
   }
-}
-*/
-
 
 })();
