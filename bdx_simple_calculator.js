@@ -13,34 +13,48 @@
   buttonsEl.addEventListener("click", handleClick, true);
 
 
-  var numString = [];
-  console.log(numString);
+  var numStr = [];
+  // var numStrJoin = numStr.join("");
+  console.log(numStr);
+
+  var sum = 0;
+  console.log(sum);
+
+  var difference = 0;
+  console.log(difference);
+
+  var product = 0;
+  console.log(product);
+
+  var quotient = 0;
+  console.log(quotient);
+
+  var equals = 0;
+  console.log(equals);
 
 
   function buttonType(buttonContent){
     var numbers = /[0-9]+/g;
     var decimal = /[.]+/g;
-    var mathOperation = /[+-÷×/*=]+/g;
+    var mathOperator = /[+-÷×/*=]+/g;
     var clear = /[AC/C]+/g;
 
 
     if(buttonContent.match(numbers)) {
       console.log(buttonContent);
       // stuff should happen...
-
-      numString.push(buttonContent);
-      document.getElementById("total").textContent = numString.join('');
-      // numbers(buttonContent);
+      numStr.push(buttonContent);
+      document.getElementById("total").textContent = numStr.join("");
 
     } else if(buttonContent.match(decimal)) {
       console.log(buttonContent);
       // stuff should happen...
       // decimal(buttonContent);
 
-    } else if(buttonContent.match(mathOperation)) {
+    } else if(buttonContent.match(mathOperator)) {
       console.log(buttonContent);
       // stuff should happen...
-      // mathOperation(buttonContent);
+      mathOperation(buttonContent);
 
     } else if(buttonContent.match(clear)) {
       console.log(buttonContent);
@@ -50,18 +64,33 @@
     }
   }
 
-function numbers(buttonContent) {
-    // stuff
-}
-
 function decimals(buttonContent) {
     // stuff
 }
 
 function mathOperation(buttonContent) {
     // stuff
-    switch (buttonContent) {
+    var numSubTotal = parseInt(numStr.join(""), 10);
+    console.log(numSubTotal);
 
+    switch(buttonContent) {
+      case "+":
+        sum = numSubTotal + sum;
+        // var cat = "meow"
+        console.log(sum);
+        break;
+      case "-":
+        difference -= numStr;
+        break;
+      case "×" || "*":
+        product * numStr;
+        break;
+      case "÷" || "/":
+        quotient / numStr;
+        break;
+      case "=":
+        document.getElementById("total").textContent = sum;
+        break;
     }
 }
 
@@ -77,11 +106,14 @@ function clear(buttonContent) {
 //
 //
 // user clicks calc number
-// // receiving (buttonContent)
-// user clicks another calc number
+// // gets stored the number in an array (numStr)
+// // display the number with a numStr.join
 //
 //
-// then they click math operator
+//
+//
+// then they click math mathOperation
+//
 //
 // then select another numbers
 //
