@@ -1,4 +1,4 @@
-(function() {
+(function(window) {
 
   function handleClick(event) {
     if (event.target !== event.currentTarget && event.target.nodeName === "BUTTON") {
@@ -13,9 +13,11 @@
   buttonsEl.addEventListener("click", handleClick, true);
 
 
-  var numStr = [];
+  var number = 0;
+
+  // var numStr = [];
   // var numStrJoin = numStr.join("");
-  console.log(numStr);
+  // console.log(numStr);
 
   var sum = 0;
   console.log(sum);
@@ -43,8 +45,11 @@
     if(buttonContent.match(numbers)) {
       console.log(buttonContent);
       // stuff should happen...
-      numStr.push(buttonContent);
-      document.getElementById("total").textContent = numStr.join("");
+      var num = parseInt(buttonContent);
+      // document.getElementById("total").textContent = number;
+      buildNumber(num);
+      // numStr.push(buttonContent);
+      // document.getElementById("total").textContent = numStr.join("");
 
     } else if(buttonContent.match(decimal)) {
       console.log(buttonContent);
@@ -64,42 +69,67 @@
     }
   }
 
-function decimals(buttonContent) {
-    // stuff
-}
 
-function mathOperation(buttonContent) {
-    // stuff
-    var numSubTotal = parseInt(numStr.join(""), 10);
-    console.log(numSubTotal);
-
-    switch(buttonContent) {
-      case "+":
-        sum = numSubTotal + sum;
-        // var cat = "meow"
-        console.log(sum);
-        break;
-      case "-":
-        difference -= numStr;
-        break;
-      case "×" || "*":
-        product * numStr;
-        break;
-      case "÷" || "/":
-        quotient / numStr;
-        break;
-      case "=":
-        document.getElementById("total").textContent = sum;
-        break;
-    }
-}
-
-function clear(buttonContent) {
-    // stuff
-}
+  function buildNumber(num) {
+    number = (number * 10) + num;
+    document.getElementById("total").textContent = number;
+  }
 
 
-})();
+  function decimals(buttonContent) {
+      // stuff
+  }
+
+  function mathOperation(buttonContent) {
+      // stuff
+      // var numSubTotal = parseInt(numStr.join(""), 10);
+      // console.log(numSubTotal);
+
+      switch(buttonContent) {
+        case "+":
+          // sum += numSubTotal;
+          // console.log(sum);
+          // numStr = [];
+
+          sum += number;
+          console.log(sum);
+
+          break;
+        case "-":
+          difference -= numSubTotal;
+          console.log(difference);
+          numStr = [];
+          break;
+        case "×":
+        case "*":
+          product * numSubTotal;
+          break;
+        case "÷":
+        case "/":
+          quotient / numSubTotal;
+          break;
+        case "=":
+          document.getElementById("total").textContent = sum;
+          break;
+      }
+  }
+
+  function clear(buttonContent) {
+      // stuff
+  }
+
+
+})(window);
+
+
+
+
+
+
+
+
+
+
 
 //
 // ** NONSENSE (TO-DO LIST:) **
