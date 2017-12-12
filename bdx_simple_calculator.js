@@ -12,27 +12,10 @@
   var buttonsEl = document.getElementById("main");
   buttonsEl.addEventListener("click", handleClick, true);
 
-
+  var subTotal = 0;
+  var operator;
   var number = 0;
-
-  // var numStr = [];
-  // var numStrJoin = numStr.join("");
-  // console.log(numStr);
-
-  var sum = 0;
-  console.log(sum);
-
-  var difference = 0;
-  console.log(difference);
-
-  var product = 0;
-  console.log(product);
-
-  var quotient = 0;
-  console.log(quotient);
-
-  var equals = 0;
-  console.log(equals);
+  var memory = 0;
 
 
   function buttonType(buttonContent){
@@ -82,37 +65,72 @@
 
   function mathOperation(buttonContent) {
       // stuff
-      // var numSubTotal = parseInt(numStr.join(""), 10);
-      // console.log(numSubTotal);
-
       switch(buttonContent) {
         case "+":
-          // sum += numSubTotal;
-          // console.log(sum);
-          // numStr = [];
-
-          sum += number;
-          console.log(sum);
-
+          subTotal += number;
+          document.getElementById("total").textContent = subTotal;
+          console.log(subTotal);
+          number = 0;
+          operator = "+";
           break;
         case "-":
-          difference -= numSubTotal;
-          console.log(difference);
-          numStr = [];
+          subTotal -= number;
+          document.getElementById("total").textContent = subTotal;
+          console.log(subTotal);
+          number = 0;
+          operator = "-";
           break;
         case "×":
         case "*":
-          product * numSubTotal;
+          subTotal *= number;
+          document.getElementById("total").textContent = subTotal;
+          console.log(subTotal);
+          number = 0;
+          operator = "*";
           break;
         case "÷":
         case "/":
-          quotient / numSubTotal;
+          subTotal /= number;
+          document.getElementById("total").textContent = subTotal;
+          console.log(subTotal);
+          number = 0;
+          operator = "/";
           break;
         case "=":
-          document.getElementById("total").textContent = sum;
+        equals(operator);
           break;
       }
   }
+
+
+  function equals(operator) {
+    switch(operator) {
+      case "+":
+        subTotal += number;
+        document.getElementById("total").textContent = subTotal;
+        console.log(subTotal);
+        number = 0;
+        break;
+      case "-":
+        subTotal -= number;
+        document.getElementById("total").textContent = subTotal;
+        console.log(subTotal);
+        break;
+      case "×":
+      case "*":
+        subTotal *= number;
+        document.getElementById("total").textContent = subTotal;
+        console.log(subTotal);
+        break;
+      case "÷":
+      case "/":
+        subTotal /= number;
+        document.getElementById("total").textContent = subTotal;
+        console.log(subTotal);
+        break;
+    }
+  }
+
 
   function clear(buttonContent) {
       // stuff
@@ -124,16 +142,20 @@
 
 
 
-
-
-
-
-
-
-
-//
 // ** NONSENSE (TO-DO LIST:) **
 //
+// type in a  #
+// var numOne = #;
+//
+// press an operator
+// var currentOperator = +*-/...;
+//
+// key in another ##
+// var numTwo = ##;
+//
+// then we press equals/=;
+// runs the switch case currentOperator(buttonContent)
+
 //
 // user clicks calc number
 // // gets stored the number in an array (numStr)
