@@ -15,13 +15,12 @@
   var subTotal = 0;
   var operator;
   var number = 0;
-  var memory = 0;
-
+  // var total = subTotal operator number;
 
   function buttonType(buttonContent){
     var numbers = /[0-9]+/g;
-    var decimal = /[.]+/g;
-    var mathOperator = /[+-÷×/*=]+/g;
+    var decimal = /[.]+/gi;
+    var mathOperator = /[+-÷×=]+/g;
     var clear = /[AC/C]+/g;
 
 
@@ -56,81 +55,65 @@
   function buildNumber(num) {
     number = (number * 10) + num;
     document.getElementById("total").textContent = number;
+    equals(2, 1, "+");
   }
+
+
+
+
+  function mathOperation(buttonContent) {
+      switch(buttonContent) {
+        case "+":
+          equals("+");
+          break;
+        case "-":
+          equals("-");
+          break;
+        case "×":
+          equals("×");
+          break;
+        case "÷":
+          if(number != 0) {
+            equals("÷");
+          } else {
+            console.log("dividing by zero");
+          }
+          break;
+        case "=":
+        equals("=");
+          break;
+      }
+      document.getElementById("total").textContent = subTotal;
+      console.log(subTotal);
+      number = 0;
+  }
+
+
+  function equals(subTotal, number, operator) {
+    switch(operator) {
+      case "+":
+        subTotal += number;
+        break;
+      case "-":
+        subTotal -= number;
+        break;
+      case "×":
+        subTotal *= number;
+        break;
+      case "÷":
+        subTotal /= number;
+        break;
+    }
+    document.getElementById("total").textContent = subTotal;
+    console.log(subTotal);
+    number = 0;
+  }
+
 
 
   function decimals(buttonContent) {
       // stuff
   }
-
-  function mathOperation(buttonContent) {
-      // stuff
-      switch(buttonContent) {
-        case "+":
-          subTotal += number;
-          document.getElementById("total").textContent = subTotal;
-          console.log(subTotal);
-          number = 0;
-          operator = "+";
-          break;
-        case "-":
-          subTotal -= number;
-          document.getElementById("total").textContent = subTotal;
-          console.log(subTotal);
-          number = 0;
-          operator = "-";
-          break;
-        case "×":
-        case "*":
-          subTotal *= number;
-          document.getElementById("total").textContent = subTotal;
-          console.log(subTotal);
-          number = 0;
-          operator = "*";
-          break;
-        case "÷":
-        case "/":
-          subTotal /= number;
-          document.getElementById("total").textContent = subTotal;
-          console.log(subTotal);
-          number = 0;
-          operator = "/";
-          break;
-        case "=":
-        equals(operator);
-          break;
-      }
-  }
-
-
-  function equals(operator) {
-    switch(operator) {
-      case "+":
-        subTotal += number;
-        document.getElementById("total").textContent = subTotal;
-        console.log(subTotal);
-        number = 0;
-        break;
-      case "-":
-        subTotal -= number;
-        document.getElementById("total").textContent = subTotal;
-        console.log(subTotal);
-        break;
-      case "×":
-      case "*":
-        subTotal *= number;
-        document.getElementById("total").textContent = subTotal;
-        console.log(subTotal);
-        break;
-      case "÷":
-      case "/":
-        subTotal /= number;
-        document.getElementById("total").textContent = subTotal;
-        console.log(subTotal);
-        break;
-    }
-  }
-
 
   function clear(buttonContent) {
       // stuff
@@ -143,6 +126,36 @@
 
 
 // ** NONSENSE (TO-DO LIST:) **
+
+
+// eventListener...
+//
+// subTotal()
+//
+// number()
+//
+// c(a,b,c)
+//
+// switch(c)
+//   total = subTotal + number;
+//
+//
+//
+//
+
+
+
+
+
+
+
+// function target(DomElement){
+//   DomElement=document.getElementById(DomElement);
+//   return DomElement;
+// }
+
+
+
 //
 // type in a  #
 // var numOne = #;
