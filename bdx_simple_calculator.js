@@ -1,3 +1,4 @@
+/*
 (function(window) {
 
   function handleClick(event) {
@@ -19,7 +20,7 @@
   function buttonType(buttonContent){
     var numbers = /[0-9]+/g;
     var decimal = /[.]+/gi;
-    var mathOperator = /[+-÷×*/=]+/g;
+    var mathOperator = /[+-÷/×*=]+/g;
     var clear = /[AC/C]+/g;
 
 
@@ -63,11 +64,99 @@
 
 })(window);
 
+*/
+
+
+
+
+
 
 
 
 // ** NONSENSE (TO-DO LIST:) **
-// [0-9]/[+-*/=]/[0-9]/[+-*/=]......
+
+(function(window) {
+
+//receive operands
+
+function handleClick(event) {
+  if (event.target !== event.currentTarget && event.target.nodeName === "BUTTON") {
+    console.log(event.target.textContent);
+
+    screen(event.target.textContent);
+  }
+  event.stopPropagation();
+}
+
+var buttonsEl = document.getElementById("main");
+buttonsEl.addEventListener("click", handleClick, true);
+
+
+
+//calculate
+
+
+
+
+//screen
+
+var equationLog = [];
+
+function screen(button) {
+  equationLog.push(button);
+  document.getElementById("total").textContent = equationLog.join('');
+}
+
+
+
+
+
+//clear
+
+
+
+})(window);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// [0-9]/[+/-*=]/[0-9]/[+/-*=]......
 // var leftOp = ;
 //
 // var operator= ;
@@ -82,7 +171,7 @@
 //
 // rightOp() {}
 //
-// number +-*/ number
+// number +*-/ number
 
 
 // eventListener...
