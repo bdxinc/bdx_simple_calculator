@@ -14,6 +14,8 @@
 
 
     const screen = (function() {
+      const MAX_CHARS_ANSWER = 20;
+      const MAX_CHARS_HISTORY = 32;
       const log = document.getElementById("log");
       const total = document.getElementById("total");
 
@@ -22,8 +24,33 @@
         let newTotal = '';
         let newLog = '';
 
-        if(/*and stuff*/) {
-          // things should happen
+        if(data.total !== undefined) {
+          if(data.total.length > MAX_CHARS_ANSWER) {
+            newTotal = "Max Digit Limit";
+          } else if(data.total === Infinity ||
+            data.total === -Infinity ||
+            data.total === "NaN" ||
+            isNaN(data.total)) {
+            newTotal = "Calculator Error";
+          } else {
+            newTotal = data.total;
+          }
+
+          total.textContent = newTotal;
+        }
+
+        if(data.log !== undefined) {
+          if(data.log.length > MAX_CHARS_HISTORY) {
+            newLog = "Max Digit Limit";
+          } else if(data.log === "Infinity" ||
+            data.log === "-Infinity") {
+            newLog = "";
+          } else {
+            newLog = data.log;
+          }
+
+          log.textContent = newLog;
+          memory.log = newLog;
         }
       }
 
