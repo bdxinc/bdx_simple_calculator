@@ -80,18 +80,31 @@
     function parseCalc(str) {
       let equation = [];
       let current = "";
-      // stuff goes here
 
-      for(/*loop hell*/) {
-        if(/*nonsense*/) {
-          // more stuff
+      for(let i = 0, char; char = str.charAt(i); i++) {
+        if(containsOperator(char)) {
+          if(current === "" && char === "-") {
+            current = "-";
+          } else {
+
+            equation.push(parseFloat(current), char);
+            current = "";
+            }
+          } else {
+          current += str.charAt(i);
         }
       }
+
+      if(current !== "") {
+        equation.push(parseFloat(current));
+      }
+
+      return equation;
     }
 
 
     function equals(calc) {
-      // stuff goes here
+
       const operator = [
         {
           "*": function(a,b) {return a * b},
@@ -106,17 +119,28 @@
       let newCalc = [];
       let currentOp;
 
-      for(/*loop hell*/) {
-        if(/*nonsense*/) {
-          // more stuff
+      for(let i = 0; i < operator.length; i++) {
+        for(let j = 0; j < calc.length; j++) {
+          if(operator[i][calc[j]]) {
+            currentOp = operator[i][clac[j]];
+          } else if(currentOp) {
+            newCalc[newCalc.length - 1] = currentOp(newCalc[newCalc.length - 1], calc[j]);
+            currentOp = null;
+          } else {
+            newCalc.push(calc[j]);
+          }
         }
+
+
+        calc = newCalc;
+        newCalc = [];
       }
 
-      calc = newCalc;
-      newCalc = [];
-
-      if(/*nonsense*/) {
-        // more stuff
+      if(calc.length > 1) {
+        console.error("Error: Unable to resolve calculation");
+        return clac;
+      } else {
+        return calc[0];
       }
     }
 
