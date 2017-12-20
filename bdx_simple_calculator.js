@@ -122,7 +122,7 @@
       for(let i = 0; i < operator.length; i++) {
         for(let j = 0; j < calc.length; j++) {
           if(operator[i][calc[j]]) {
-            currentOp = operator[i][clac[j]];
+            currentOp = operator[i][calc[j]];
           } else if(currentOp) {
             newCalc[newCalc.length - 1] = currentOp(newCalc[newCalc.length - 1], calc[j]);
             currentOp = null;
@@ -138,7 +138,7 @@
 
       if(calc.length > 1) {
         console.error("Error: Unable to resolve calculation");
-        return clac;
+        return calc;
       } else {
         return calc[0];
       }
@@ -146,12 +146,35 @@
 
 
     function isCalcValueValid(value) {
-      // stuff goes here
       const logLength = memory.log.length;
 
-      if(/*nonsense*/) {
-        // more stuff
+      if(!value || value === "") {
+        return false;
       }
+
+      if(memory.reset || value === "c") {
+        screen.clear();
+        return false;
+      }
+
+      if(isLogEmpty() && containsOperator(value) ||
+        isLogEmpty() && value === "=" ||
+        isLogEmpty() && value === "0") {
+        return false;
+      }
+
+      if(memory.decimal && value === ".") {
+        return false;
+      }
+
+      if(containsOperator(value) &&
+        (".".indexOf(memory.log.charAt(logLength - 1)) !== -1 ||
+        "=".indexOf(value) !== -1)
+      ) {
+        return false;
+      }
+
+      return true;
     }
 
 
