@@ -73,7 +73,7 @@
 
 
     function containsOperator(str) {
-      return OPERATORS.indexOf(str) !== -1;
+      return MATH_OPERATORS.indexOf(str) !== -1;
     }
 
 
@@ -179,17 +179,51 @@
 
 
     function append(value) {
-      // stuff goes here
-      if(/*nonsense*/) {
-        // more stuff
+      if(isCalcValueValid(value)) {
+        if(value === "=") {
+          memory.total = equals(parseCalc(memory.log));
+          memory.log = (memory.total && !isNaN(memory.total)) ? memory.total.toString() : "";
+          memory.decimal = false;
+        } else {
+          memory.log += value;
+
+          if(!containsOperator(value)) {
+            if(memory.total.toString().charAt(0) === "0" && !memory.decimal) {
+              if(value === ".") {
+                memory.total = "0.";
+                memory.log = memory,log.slice(0, memory.log.length - 1) + ".";
+              } else {
+                memory.total = value;
+              }
+            } else {
+              if(containsOperator(memory.log[memory.log.length - 2])) {
+                memory.total = value;
+              } else {
+                memory.total += value;
+              }
+            }
+
+            memory.decimal = (value === "." || memory.total.indexOf(".") !== -1);
+          } else {
+            if(containsOperator(memory.log.charAt(memory.log.length - 2))) {
+              memory.log = memory.log.slice(O, memory.log.length - 2) + value;
+            }
+
+            memory.decimal = false;
+          }
+        }
+
+        screen.update({total: memory.total, log: memory.log});
+        return true;
       }
+
+      return false;
     }
 
     return {
       input: append,
       clear: screen.clear
-    }
-
+    };
   })();
 
 
