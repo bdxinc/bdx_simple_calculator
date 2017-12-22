@@ -152,7 +152,7 @@
         return false;
       }
 
-      if(memory.reset || value === "c") {
+      if(memory.reset || value === "C") {
         screen.clear();
         return false;
       }

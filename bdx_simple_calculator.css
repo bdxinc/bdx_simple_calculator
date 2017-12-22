@@ -7,7 +7,7 @@
 .calcFace {
   display: grid;
   grid-template-columns: 25% 50% 25%;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 2fr 2fr;
   border: 2px solid green;
 }
 
@@ -28,10 +28,12 @@ h1 {
 
 .screen {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
   grid-column: 1 / 4;
   border: 2px solid orange;
+  padding-right: 1em;
 }
 
 button {
