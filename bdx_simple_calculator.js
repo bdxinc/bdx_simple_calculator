@@ -227,7 +227,7 @@
   })();
 
 
-  function handleClick(event) {
+  function mouseClick(event) {
     if (event.target !== event.currentTarget && event.target.nodeName === "BUTTON") {
       console.log(event.target.value || event.target.textContent);
 
@@ -236,8 +236,22 @@
     event.stopPropagation();
   }
 
-  const buttonsEl = document.getElementById("main");
-  buttonsEl.addEventListener("click", handleClick, true);
+  const mouseEl = document.getElementById("main");
+  mouseEl.addEventListener("click", mouseClick, true);
 
+  // js keyboard event listener calculator
+  function keyboardClick(event) {
+    /*if (event.key !== event.currentTarget && event.key.nodeName === "BUTTON")*/ {
+      console.log(event.key);
+
+      calculator.input(event.key);
+    }
+    event.stopPropagation();
+  }
+
+
+  // const keyboardEl = document.getElementById("window");
+  window.addEventListener("keyup", keyboardClick, false);
+  // console.log(event.key);
 
 })(window);
