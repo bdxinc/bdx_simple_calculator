@@ -64,6 +64,7 @@ button {
 #clear {
   grid-column: 3;
   grid-row: 1;
+  background-color: blue;
 }
 
 #zero {
