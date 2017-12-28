@@ -1,5 +1,6 @@
 (function(window) {
 
+
   const calculator = (function(){
     const MATH_OPERATORS = "+*-/";
     const INITIAL_MEMORY = {
@@ -148,11 +149,16 @@
     function isCalcValueValid(value) {
       const logLength = memory.log.length;
 
+      if(isNaN(value) && "+*-/=.Cc".indexOf(value) === -1) {
+        console.log("Line 158:", value);
+        return false;
+      }
+
       if(!value || value === "") {
         return false;
       }
 
-      if(memory.reset || value === "C") {
+      if(memory.reset || value === "C" || value === "c") {
         screen.clear();
         return false;
       }
@@ -179,6 +185,11 @@
 
 
     function append(value) {
+      if(value === "Enter") {
+        value = "=";
+        console.log("Line 154:", value);
+      }
+
       if(isCalcValueValid(value)) {
         if(value === "=") {
           memory.total = equals(parseCalc(memory.log));
@@ -239,19 +250,14 @@
   const mouseEl = document.getElementById("main");
   mouseEl.addEventListener("click", mouseClick, true);
 
-  // js keyboard event listener calculator
-  function keyboardClick(event) {
-    /*if (event.key !== event.currentTarget && event.key.nodeName === "BUTTON")*/ {
-      console.log(event.key);
 
+  function keyboardPress(event) {
+      event.preventDefault();
+      console.log(event.key);
       calculator.input(event.key);
-    }
-    event.stopPropagation();
   }
 
+  window.addEventListener("keypress", keyboardPress, false);
 
-  // const keyboardEl = document.getElementById("window");
-  window.addEventListener("keyup", keyboardClick, false);
-  // console.log(event.key);
 
 })(window);

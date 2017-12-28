@@ -5,8 +5,9 @@
 .main {
   display: grid;
   grid-template-rows: 1fr 2fr;
-  border: 2px solid red;
+  border: 6px solid red;
   font-family: monospace;
+  border-radius: 15px;
 }
 
 .calcFace {
@@ -52,10 +53,12 @@ button {
 
 #log {
   font-size: 1.5em;
+  color: green;
 }
 
 #total {
   font-size: 2em;
+  color: red;
 }
 
 #clear {
@@ -66,79 +69,95 @@ button {
 #zero {
   grid-column: 1;
   grid-row: 4;
+  background-color: green;
 }
 
 #one {
   grid-column: 1;
   grid-row: 3;
+  background-color: red;
 }
 
 #two {
   grid-column: 2;
   grid-row: 3;
+  background-color: green;
 }
 
 #three {
   grid-column: 3;
   grid-row: 3;
+  background-color: red;
 }
 
 #four {
   grid-column: 1;
   grid-row: 2;
+  background-color: green;
 }
 
 #five {
   grid-column: 2;
   grid-row: 2;
+  background-color: red;
 }
 
 #six {
   grid-column: 3;
   grid-row: 2;
+  background-color: green;
 }
 
 #seven {
   grid-column: 1;
   grid-row: 1;
+  background-color: red;
 }
 
 #eight {
   grid-column: 2;
   grid-row: 1;
+  background-color: green;
 }
 
 #nine {
   grid-column: 3;
   grid-row: 1;
+  background-color: red;
 }
 
 #decimal {
   grid-column: 2;
   grid-row: 4;
+  background-color: red;
 }
 
 #equals {
   grid-column: 3;
   grid-row: 4;
+  background-color: green;
 }
 
 #addition {
   grid-column: 4;
   grid-row: 4;
+  background-color: red;
 }
 
 #subtraction {
   grid-column: 4;
   grid-row: 3;
+  background-color: green;
 }
 
 #multiplication {
   grid-column: 4;
   grid-row: 2;
+  background-color: red;
 }
 
 #division {
   grid-column: 4;
   grid-row: 1;
+  background-color: green;
 }
